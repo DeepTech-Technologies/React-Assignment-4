@@ -4,13 +4,19 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [step, setStep] = useState(1)
+
+  function handleStep(e){
+    setStep(Number(e.target.value))
+  }
 
   function handleIncrement() {
-    setCount((prevCount) => prevCount + 1)
+    setCount((prevCount) => prevCount + step)
   }
 
     function handleDecrement() {
-    setCount((prevCount) => prevCount - 1)
+    // setCount((prevCount) => prevCount)
+    setCount((prevCount) => prevCount <= 0 ? alert("Count cannot be less than 0") : prevCount - 1)
   }
 
   function handleReset() {
@@ -20,6 +26,8 @@ function App() {
   return (
     <>
       <p>{count}</p>
+      <span>Enter Counter Step:</span>
+      <input type="text" value= {step} onChange={handleStep} />
       <button onClick={handleIncrement}>Increment</button>
       <button onClick={handleDecrement}>Decrement</button>
       <button onClick={handleReset}>Reset</button>
