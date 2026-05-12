@@ -15,23 +15,25 @@ function App() {
   }
 
     function handleDecrement() {
-    // setCount((prevCount) => prevCount)
     setCount((prevCount) => prevCount <= 0 ? setCount(0) : prevCount - 1)
   }
 
-  function handleReset() {
+  function handleReset(e) {
     setCount(0)
   }
 
   return (
-    <>
+    <div className = "App">
       <p>{count}</p>
       <span>Enter Counter Step:</span>
       <input type="text" value= {step} onChange={handleStep} />
-      <button onClick={handleIncrement}>Increment</button>
-      <button onClick={handleDecrement}>Decrement</button>
-      <button onClick={handleReset}>Reset</button>
-    </>
+      <div className="btn-section">
+        <button onClick={handleIncrement}>Increment</button>
+        <button onClick={handleDecrement}>Decrement</button>
+        <button onClick={handleReset}>Reset</button>
+      </div>
+      
+    </div>
   )
 }
 
