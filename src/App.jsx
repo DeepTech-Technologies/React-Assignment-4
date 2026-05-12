@@ -16,7 +16,7 @@ function App() {
 
     function handleDecrement() {
     // setCount((prevCount) => prevCount)
-    setCount((prevCount) => prevCount <= 0 ? alert("Count cannot be less than 0") : prevCount - 1)
+    setCount((prevCount) => prevCount <= 0 ? setCount(0) : prevCount - 1)
   }
 
   function handleReset() {
